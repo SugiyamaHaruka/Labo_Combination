@@ -23,17 +23,19 @@ def main():
     while count < int(max_times):
         # current[今回のメンバー1,今回のメンバー1]
         # 一様分布で乱数生成
-        current = numpy.random.randint(1, 6, 2)
+        current = numpy.random.randint(1, int(member_total) + 1, int(member_expected))
 
-        if all(x not in current for x in before) and len(set(current)) == 2:
+        if all(x not in current for x in before) and len(set(current)) == int(member_expected):
             # 前回のメンバーと重複しない時
             # 乱数に重複がない時
 
             before = current.copy()
             for i in current:
                 member_dictionary[str(i)] += 1
-            print("参加者一 : " + str(current[0]) + " 参加者二 : " + str(current[1]))
 
+            print("参加者一 : " + str(current[0]) + " 参加者二 : " + str(current[1]))
+            # 参加者は3人以上の場合、ここのprintを書き直す必要がある。
+            # print("参加者一 : " + str(current[0]) + " 参加者二 : " + str(current[1]) + " 参加者三 : " + str(current[2]))
             count += 1
 
     print(member_dictionary)
