@@ -82,7 +82,7 @@ def check_condition_b(member_dictionary):
         Boolean
     """
 
-    # 参加回数が0が存在する場合が不正解
+    # 参加回数に0が存在する場合は不正解
     if 0 in member_dictionary.values():
         return False
     else:
