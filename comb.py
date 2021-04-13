@@ -43,7 +43,7 @@ def generate_comb(member_expected, member_total, max_times):
             times = int(max_times / len(current_comb))
             for i in range(times-1):
                 current_comb += current_comb
-
+            random.shuffle(current_comb)
     return current_comb
 
 
