@@ -1,4 +1,3 @@
-import numpy as np
 from sys import argv
 from itertools import combinations
 from copy import deepcopy
@@ -91,8 +90,24 @@ def re_comb(member_expected, member_total, member_dictionary, current_comb, time
 
 # 全ての組合せを表示する回数
 def print_members(current_comb, max_times):
+    name_dict = {
+        1:"18T4006",
+        2:"18T4015",
+        3:"18T4025",
+        4:"18T4029",
+        5:"18T4043"
+    }
+    filename = "result" + str(max_times) + ".txt"
     for i,v in enumerate(current_comb[:max_times]):
-        print("No.", i + 1, ":", v)
+        """
+        f' format済み
+        <  左寄り並び
+    　　 <7 左寄り7byte
+        """
+        result_print = f'{str("No." + str(i + 1) +":"):<7} {name_dict[list(v)[0]]:<12} {name_dict[list(v)[1]]:<12}'
+        with open(filename, "a") as fs:
+            fs.write(result_print + "\n")
+            print(result_print)
 
 
 def main():
