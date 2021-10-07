@@ -11,7 +11,7 @@ import (
 var wg sync.WaitGroup
 
 func main() {
-
+    // test
 	// Go will use maximum number of processors available to process goroutines
 	processors := runtime.GOMAXPROCS(runtime.NumCPU())
 
